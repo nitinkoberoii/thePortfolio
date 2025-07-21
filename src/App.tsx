@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import HomeScreen from "./components/screens/home/HomeScreen";
 import ProjectsScreen from "./components/screens/projects/ProjectsScreen";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/react';
 
 const App: React.FC = () => (
   <Router>
@@ -18,6 +19,7 @@ const App: React.FC = () => (
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </div>
   </Router>
   );
