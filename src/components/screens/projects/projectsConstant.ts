@@ -11,6 +11,15 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     category: "complete-apps",
+    image: "/projects/my-portfolio.png",
+    techStack: ["React", "Vite", "Typescript"],
+    title: "My Portfolio",
+    description: "You're using it rn",
+    liveUrl: "https://nitin-portfolio-peach.vercel.app",
+    githubUrl: "https://github.com/nitinkoberoii/thePortfolio"
+  },
+  {
+    category: "complete-apps",
     image: "/projects/discussit.png",
     techStack: ["Flutter", "Dart", "Firebase", "Riverpod_SM"],
     title: "DiscussIt",
