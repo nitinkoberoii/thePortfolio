@@ -12,7 +12,7 @@ export const PROJECTS: Project[] = [
   {
     category: "complete-apps",
     image: "/projects/my-portfolio.png",
-    techStack: ["React", "Vite", "Typescript"],
+    techStack: ["HTML", "CSS", "React", "Vite", "Typescript"],
     title: "My Portfolio",
     description: "You're using it rn",
     liveUrl: "https://nitin-portfolio-peach.vercel.app",
