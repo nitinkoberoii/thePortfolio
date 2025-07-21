@@ -132,7 +132,7 @@ const HomeScreen: React.FC = () => {
       {/* Projects Grid */}
       <section className="relative w-full px-8 md:px-[10vw] pb-24">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {PROJECTS.slice(0, 3).map((project: Project, idx: number) => (
+          {PROJECTS.slice(0, 3).map((project: Project) => (
             <div key={project.title} className="border border-gray bg-background/80 rounded-none flex flex-col h-full min-h-[380px] shadow-md transition-transform hover:-translate-y-2 group">
               {/* Project Image */}
               <div className="w-full h-[180px] bg-black flex items-center justify-center border-b border-gray overflow-hidden">

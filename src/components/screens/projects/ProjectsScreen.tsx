@@ -2,11 +2,6 @@ import React, { useEffect } from "react";
 import { PROJECTS } from "./projectsConstant";
 import type { Project } from "./projectsConstant";
 
-const CATEGORY_LABELS: Record<string, string> = {
-  "complete-projects": "#complete-projects",
-  "small-projects": "#small-projects",
-  "AI/ML": "#AI/ML"
-};
 
 const ProjectsScreen: React.FC = () => {
   // Scroll to top on mount
