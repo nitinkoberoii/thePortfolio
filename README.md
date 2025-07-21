@@ -64,6 +64,26 @@ I’m a B.Tech student at IIIT Vadodara - ICD, with a passion for creating seaml
 
 ---
 
+## Screenshots
+
+### Home
+
+![Home](public/screenshots/home.png)
+
+### About
+
+![About](public/screenshots/about.png)
+
+### Projects Home
+
+![Projects Home](public/screenshots/projects-home.png)
+
+### Projects
+
+![Projects](public/screenshots/projects.png)
+
+---
+
 ## Installation
 
 1. **Clone the repository:**
@@ -148,25 +168,5 @@ thePortfolio/
 ├── tailwind.config.js
 └── ...
 ```
-
----
-
-## Screenshots
-
-### Home
-
-![Home](public/screenshots/home.png)
-
-### About
-
-![About](public/screenshots/about.png)
-
-### Projects Home
-
-![Projects Home](public/screenshots/projects-home.png)
-
-### Projects
-
-![Projects](public/screenshots/projects.png)
 
 ---
