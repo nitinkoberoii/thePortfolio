@@ -6,6 +6,7 @@ import unionLogo from "../assets/images/union.png";
 const navLinks = [
   { label: "#home" },
   { label: "#projects" },
+  { label: "#experience" },
   { label: "#skills" },
   { label: "#about-me" },
   { label: "#contacts" },

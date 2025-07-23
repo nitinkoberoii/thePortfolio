@@ -24,6 +24,7 @@ import { ABOUT_SECTION } from "../about-me/aboutConstants";
 import { PROJECTS } from "../projects/projectsConstant";
 import type { Project } from "../projects/projectsConstant";
 import { CONTACTS_SECTION } from "../contacts/contactsConstants";
+import ExperienceScreen from "../experience/ExperienceScreen";
 
 const HomeScreen: React.FC = () => {
   return (
@@ -178,6 +179,12 @@ const HomeScreen: React.FC = () => {
 
       {/* Space below projects */}
       <div className="h-[80px] md:h-[20px]"></div>
+
+      {/* Experience Section */}
+      <ExperienceScreen />
+
+      {/* Space below experience */}
+      <div className="h-[80px] md:h-[40px]"></div>
 
       {/* Skills Section Title */}
       <section id="skills" className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
