@@ -18,8 +18,8 @@ const ExperienceScreen: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const pathRef = useRef<SVGPathElement>(null);
   const [milestonePoints, setMilestonePoints] = useState<{x: number, y: number}[]>([]);
-  const [avatarPos, setAvatarPos] = useState<{x: number, y: number} | null>(null);
-  const [mouseOnLine, setMouseOnLine] = useState(false);
+  const [, setAvatarPos] = useState<{x: number, y: number} | null>(null);
+  const [, setMouseOnLine] = useState(false);
 
   // Calculate milestone points after SVG renders
   useEffect(() => {
