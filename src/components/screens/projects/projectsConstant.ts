@@ -118,4 +118,27 @@ export const PROJECTS: Project[] = [
     description: "A BT remote-controlled car built using Arduino UNO",
     githubUrl: "https://github.com/nitinkoberoii/RC-Car-using-Arduino"
   },
+  {
+    category: "AI/ML",
+    image: "/projects/ALPDV.png",
+    techStack: ["Python", "PyTorch", "TorchVision", "YOLOv5", "OpenCV", "NumPy", "Pytesseract", "Colab", "Jupyter-Notebook"],
+    title: "Automatic License Plate Detection and Validation System",
+    description: "Automatic License Plate Detection and Verification (ALPDV) using YOLOv5 for object detection and Tesseract OCR for text recognition.",
+    githubUrl: "https://github.com/nitinkoberoii/Automatic-License-Plate-Detection-and-Validation"
+  },
+  {
+    category: "AI/ML",
+    image: "/projects/chest.png",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Jupyter-Notebook"],
+    title: "Chest X-Ray Disease Detection",
+    description: "Detection of diseases using predictive models.",
+    githubUrl: "https://github.com/nitinkoberoii/Disease_detection"
+  },
+  {
+    category: "AI/ML",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Flask", "Support-Vector-Machine(SVC)", "Random-Forest-Classifier"],
+    title: "AI for Personalized Medicine",
+    description: "AI for personalized disease prediction and treatment recommendations.",
+    githubUrl: "https://github.com/nitinkoberoii/AI-based-disease-prediction"
+  },
 ]; 
