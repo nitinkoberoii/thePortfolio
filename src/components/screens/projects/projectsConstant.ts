@@ -58,13 +58,6 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/nitinkoberoii/Musically"
   },
   {
-    category: "AI/ML",
-    techStack: ["Python", "CNN", "TensorFlow"],
-    title: "Disease Detection",
-    description: "ML project for detection of diseases using predictive models",
-    githubUrl: "https://github.com/nitinkoberoii/Disease_detection"
-  },
-  {
     category: "small-projects",
     image: "/projects/tic-tac-toe.png",
     techStack: ["Dart", "Flutter", "Provider_SM"],
