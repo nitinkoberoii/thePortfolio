@@ -68,11 +68,11 @@ const HomeScreen: React.FC = () => {
             alt="Union Outlined"
             className="absolute left-[28%] top-[25%] -translate-x-1/2 -translate-y-1/2 w-[60px] md:w-[180px] opacity-80 pointer-events-none select-none z-0"
           />
-          {/* Profile Image */}
+          {/* Profile Image with Hover Zoom */}
           <img
             src={profileImg}
             alt="Profile"
-            className="relative z-10 w-[280px] md:w-[470px] rounded-b-xl object-cover object-top shadow-lg -mt-8 md:-mt-12"
+            className="relative z-10 w-[280px] md:w-[470px] rounded-b-xl object-cover object-top shadow-lg -mt-8 md:-mt-12 transition-transform duration-500 ease-out hover:scale-105 cursor-pointer"
             style={{ clipPath: 'inset(0 0 0 0 round 0 0 32px 32px)' }}
           />
           {/* Dots Overlay (front) */}
@@ -128,8 +128,8 @@ const HomeScreen: React.FC = () => {
           >
             View all
             <svg width="36" height="16" viewBox="0 0 36 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 8H34" stroke="currentColor" strokeWidth="2"/>
-              <path d="M28 2L34 8L28 14" stroke="currentColor" strokeWidth="2"/>
+              <path d="M0 8H34" stroke="currentColor" strokeWidth="2" />
+              <path d="M28 2L34 8L28 14" stroke="currentColor" strokeWidth="2" />
             </svg>
           </Link>
         </div>
@@ -233,7 +233,7 @@ const HomeScreen: React.FC = () => {
                 </div>
               ))}
             </div>
-            
+
             <div className="hidden md:flex flex-wrap gap-5 max-w-[720px]">
               {SKILLS.map((skill) => (
                 <div key={skill.category} className="border border-gray px-6 py-4 flex-1 min-w-[200px] max-w-[220px]">
