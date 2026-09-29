@@ -19,6 +19,14 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/nitinkoberoii/thePortfolio"
   },
   {
+    category: "AI/ML",
+    image: "/projects/buildbuddy.png",
+    techStack: ["Python", "LangGraph", "FastAPI", "LLMs"],
+    title: "BuildBuddy",
+    description: "Multi-agent AI coding assistant that converts written requirements into architecture, implementation, and test plans across 20+ files.",
+    githubUrl: "https://github.com/nitinkoberoii/BuildBuddy"
+  },
+  {
     category: "complete-apps",
     image: "/projects/discussit.png",
     techStack: ["Flutter", "Dart", "Firebase", "Riverpod_SM"],
@@ -56,14 +64,6 @@ export const PROJECTS: Project[] = [
     title: "Musically",
     description: "A digital music service",
     githubUrl: "https://github.com/nitinkoberoii/Musically"
-  },
-  {
-    category: "AI/ML",
-    image: "/projects/buildbuddy.png",
-    techStack: ["Python", "LangGraph", "FastAPI", "LLMs"],
-    title: "BuildBuddy",
-    description: "Multi-agent AI coding assistant that converts written requirements into architecture, implementation, and test plans across 20+ files.",
-    githubUrl: "https://github.com/nitinkoberoii/BuildBuddy"
   },
   {
     category: "AI/ML",
