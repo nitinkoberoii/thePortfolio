@@ -30,22 +30,22 @@ const ProjectsScreen: React.FC = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {projects.map((project: Project) => (
-                <div key={project.title} className="border border-gray bg-background/80 rounded-none flex flex-col shadow-md transition-transform hover:-translate-y-2 group">
+                <div key={project.title} className="border border-gray hover:border-primary bg-background/80 rounded-none flex flex-col shadow-md transition-all duration-300 hover:-translate-y-2 group">
                   {/* Project Image (only if present) */}
                   {project.image && (
-                    <div className="w-full h-[180px] bg-black flex items-center justify-center border-b border-gray overflow-hidden">
+                    <div className="w-full h-[180px] bg-black flex items-center justify-center border-b border-gray group-hover:border-primary/50 transition-colors overflow-hidden">
                       <img src={project.image} alt={project.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
                     </div>
                   )}
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2 text-xs font-mono text-gray border-b border-gray px-4 py-2">
+                  <div className="flex flex-wrap gap-2 text-xs font-mono text-gray border-b border-gray group-hover:border-primary/50 transition-colors px-4 py-2">
                     {project.techStack.map((tech) => (
                       <span key={tech}>{tech}</span>
                     ))}
                   </div>
                   {/* Title & Description */}
                   <div className="flex-1 px-4 py-4 flex flex-col">
-                    <span className="font-mono text-2xl font-bold mb-2 text-white">{project.title}</span>
+                    <span className="font-mono text-2xl font-bold mb-2 text-white group-hover:text-primary transition-colors">{project.title}</span>
                     <span className="font-mono text-gray text-base mb-4">{project.description}</span>
                     <div className="mt-auto flex gap-4">
                       {project.liveUrl && (
@@ -53,7 +53,7 @@ const ProjectsScreen: React.FC = () => {
                           Live <span className="inline-block ml-1">⇔</span>
                         </a>
                       )}
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="border border-gray text-gray font-mono px-4 py-2 text-base hover:bg-gray hover:text-background transition-colors">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="border border-gray group-hover:border-primary/70 text-gray group-hover:text-white font-mono px-4 py-2 text-base hover:bg-gray hover:text-background transition-colors">
                         Github <span className="inline-block ml-1">&gt;</span>
                       </a>
                     </div>
