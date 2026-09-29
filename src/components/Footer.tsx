@@ -55,10 +55,10 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Copyright - New row below everything */}
         <div className="text-center mt-8 px-8 md:px-[10vw]">
-          <span className="text-gray font-mono text-base">© No Copyright 2025. Made by {USER_NAME}</span>
+          <span className="text-gray font-mono text-base">© No Copyright 2026. Made by {USER_NAME}</span>
         </div>
       </div>
     </footer>

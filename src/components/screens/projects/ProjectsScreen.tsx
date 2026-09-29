@@ -10,7 +10,7 @@ const ProjectsScreen: React.FC = () => {
   }, []);
 
   // Group projects by category
-  const categories = ["complete-apps", "small-projects", "AI/ML"];
+  const categories = ["complete-apps", "AI/ML", "small-projects"];
 
   return (
     <div className="w-full bg-background text-white min-h-screen px-8 md:px-[10vw] py-12">

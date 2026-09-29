@@ -3,7 +3,9 @@ import { EXPERIENCES } from "./experienceConstants";
 import dotsImg from "../../../assets/images/dots.png";
 import rect1 from "../../../assets/images/rect1.png";
 
-const MILESTONE_POSITIONS = [0.1, 0.5, 0.9]; // % along the line for 3 experiences
+const MILESTONE_POSITIONS = EXPERIENCES.map((_, idx) =>
+  EXPERIENCES.length > 1 ? 0.08 + (idx * 0.84) / (EXPERIENCES.length - 1) : 0.5
+);
 
 const SVG_WIDTH = 900;
 const SVG_HEIGHT = 120;
@@ -69,7 +71,7 @@ const ExperienceScreen: React.FC = () => {
     <section
       id="experience"
       className="relative w-full px-2 md:px-[10vw] py-24 flex flex-col items-center"
-      style={{ minHeight: activeIdx !== null ? 420 : 220 }}
+      style={{ minHeight: activeIdx !== null ? 450 : 220 }}
     >
       {/* Section Title */}
       <div className="flex items-center mb-12 w-full">
@@ -119,8 +121,8 @@ const ExperienceScreen: React.FC = () => {
                   onMouseLeave={handleDotMouseLeave}
                   onClick={() => setActiveIdx(idx === activeIdx ? null : idx)}
                 />
-                {/* Icon on dot */}
-                {exp.icon && (
+                {/* Icon or Initials on dot */}
+                {exp.icon ? (
                   <image
                     href={exp.icon}
                     x={pt.x - 12}
@@ -128,8 +130,11 @@ const ExperienceScreen: React.FC = () => {
                     width={24}
                     height={24}
                     style={{ pointerEvents: "none" }}
+                    onError={(e) => {
+                      (e.target as SVGElement).style.display = 'none';
+                    }}
                   />
-                )}
+                ) : null}
               </g>
             );
           })}
@@ -137,33 +142,45 @@ const ExperienceScreen: React.FC = () => {
         {/* Milestone Popups */}
         {milestonePoints.length === MILESTONE_POSITIONS.length && milestonePoints.map((pt, idx) => {
           const exp = EXPERIENCES[idx];
+          // Calculate clamped left percentage to prevent popup from going off-screen
+          const rawPercent = (pt.x / SVG_WIDTH) * 100;
+          const clampedPercent = Math.max(16, Math.min(84, rawPercent));
+
           return (
             <div
               key={idx}
               style={{
                 position: "absolute",
-                left: `calc(${(pt.x / SVG_WIDTH) * 100}% - 120px)` ,
-                top: pt.y + 32, // 32px below the center of the dot (dot radius + margin)
+                left: `${clampedPercent}%`,
+                transform: "translateX(-50%)",
+                top: pt.y + 32, // 32px below the center of the dot
                 zIndex: 30,
                 display: activeIdx === idx ? "block" : "none",
-                width: 240,
+                width: 280,
                 pointerEvents: "auto",
-                background: "rgba(24, 20, 36, 1)"
+                background: "rgba(24, 20, 36, 0.96)"
               }}
               className="border border-primary rounded-lg shadow-xl p-5 font-mono text-white text-left animate-fade-in select-none relative"
               onMouseLeave={handleDotMouseLeave}
             >
               <div className="flex flex-row items-start mb-1">
                 <div className="flex-1 min-w-0">
-                  <div className="font-bold text-lg mb-1 break-words">{exp.title}</div>
-                  <div className="text-primary font-semibold mb-1 break-words">{exp.company}</div>
+                  <div className="font-bold text-base md:text-lg mb-1 break-words">{exp.title}</div>
+                  <div className="text-primary font-semibold text-sm mb-1 break-words">{exp.company}</div>
                   <div className="text-xs text-gray mb-2 break-words">{exp.duration}</div>
                 </div>
                 {exp.icon && (
-                  <img src={exp.icon} alt="icon" className="w-14 h-14 ml-2 flex-shrink-0" />
+                  <img
+                    src={exp.icon}
+                    alt="icon"
+                    className="w-10 h-10 ml-2 flex-shrink-0 object-contain"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
                 )}
               </div>
-              <div className="text-gray text-sm break-words w-full">{exp.description}</div>
+              <div className="text-gray text-xs md:text-sm break-words w-full leading-relaxed">{exp.description}</div>
             </div>
           );
         })}

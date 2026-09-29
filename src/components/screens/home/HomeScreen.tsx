@@ -239,58 +239,19 @@ const HomeScreen: React.FC = () => {
             ))}
           </div>
           
-          {/* Desktop Layout: 3x2 grid with custom positioning */}
-          <div className="hidden md:grid grid-cols-3 grid-rows-2 gap-6" style={{ gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gridTemplateRows: 'repeat(2, auto)' }}>
-            {/* Languages (col 1, row 1-2, span 2 rows) */}
-            <div className="border border-gray px-6 py-4 min-w-[200px] max-w-[220px] row-span-1">
-              <span className="font-mono font-bold text-lg text-white mb-2 block">{SKILLS[0].category}</span>
-              <div className="border-t border-gray my-2 -mx-6"></div>
-              <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                {SKILLS[0].items.map((item: string) => (
-                  <span key={item}>{item}</span>
-                ))}
+          {/* Desktop Layout: Dynamic flexible layout */}
+          <div className="hidden md:flex flex-wrap gap-5 max-w-[720px]">
+            {SKILLS.map((skill) => (
+              <div key={skill.category} className="border border-gray px-6 py-4 flex-1 min-w-[200px] max-w-[220px]">
+                <span className="font-mono font-bold text-lg text-white mb-2 block">{skill.category}</span>
+                <div className="border-t border-gray my-2 -mx-6"></div>
+                <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
+                  {skill.items.map((item: string) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
               </div>
-            </div>
-            {/* Databases (col 2, row 1) */}
-            <div className="border border-gray px-6 py-4 min-w-[200px] max-w-[220px]">
-              <span className="font-mono font-bold text-lg text-white mb-2 block">{SKILLS[1].category}</span>
-              <div className="border-t border-gray my-2 -mx-6"></div>
-              <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                {SKILLS[1].items.map((item: string) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
-            {/* Other (col 3, row 1) */}
-            <div className="border border-gray px-6 py-4 min-w-[200px] max-w-[220px]">
-              <span className="font-mono font-bold text-lg text-white mb-2 block">{SKILLS[3].category}</span>
-              <div className="border-t border-gray my-2 -mx-6"></div>
-              <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                {SKILLS[3].items.map((item: string) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
-            {/* Tools (col 2, row 2) */}
-            <div className="border border-gray px-6 py-4 min-w-[200px] max-w-[220px]">
-              <span className="font-mono font-bold text-lg text-white mb-2 block">{SKILLS[2].category}</span>
-              <div className="border-t border-gray my-2 -mx-6"></div>
-              <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                {SKILLS[2].items.map((item: string) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
-            {/* Frameworks (col 3, row 2) */}
-            <div className="border border-gray px-6 py-4 min-w-[200px] max-w-[220px]">
-              <span className="font-mono font-bold text-lg text-white mb-2 block">{SKILLS[4].category}</span>
-              <div className="border-t border-gray my-2 -mx-6"></div>
-              <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                {SKILLS[4].items.map((item: string) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

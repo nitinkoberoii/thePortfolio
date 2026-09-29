@@ -58,6 +58,37 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/nitinkoberoii/Musically"
   },
   {
+    category: "AI/ML",
+    image: "/projects/buildbuddy.png",
+    techStack: ["Python", "LangGraph", "FastAPI", "LLMs"],
+    title: "BuildBuddy",
+    description: "Multi-agent AI coding assistant that converts written requirements into architecture, implementation, and test plans across 20+ files.",
+    githubUrl: "https://github.com/nitinkoberoii/BuildBuddy"
+  },
+  {
+    category: "AI/ML",
+    image: "/projects/ALPDV.png",
+    techStack: ["Python", "PyTorch", "TorchVision", "YOLOv5", "OpenCV", "NumPy", "Pytesseract", "Colab", "Jupyter-Notebook"],
+    title: "Automatic License Plate Detection and Validation System",
+    description: "Automatic License Plate Detection and Verification (ALPDV) using YOLOv5 for object detection and Tesseract OCR for text recognition.",
+    githubUrl: "https://github.com/nitinkoberoii/Automatic-License-Plate-Detection-and-Validation"
+  },
+  {
+    category: "AI/ML",
+    image: "/projects/chest.png",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Jupyter-Notebook"],
+    title: "Chest X-Ray Disease Detection",
+    description: "Detection of diseases using predictive models.",
+    githubUrl: "https://github.com/nitinkoberoii/Disease_detection"
+  },
+  {
+    category: "AI/ML",
+    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Flask", "Support-Vector-Machine(SVC)", "Random-Forest-Classifier"],
+    title: "AI for Personalized Medicine",
+    description: "AI for personalized disease prediction and treatment recommendations.",
+    githubUrl: "https://github.com/nitinkoberoii/AI-based-disease-prediction"
+  },
+  {
     category: "small-projects",
     image: "/projects/tic-tac-toe.png",
     techStack: ["Dart", "Flutter", "Provider_SM"],
@@ -110,28 +141,5 @@ export const PROJECTS: Project[] = [
     title: "RC Car",
     description: "A BT remote-controlled car built using Arduino UNO",
     githubUrl: "https://github.com/nitinkoberoii/RC-Car-using-Arduino"
-  },
-  {
-    category: "AI/ML",
-    image: "/projects/ALPDV.png",
-    techStack: ["Python", "PyTorch", "TorchVision", "YOLOv5", "OpenCV", "NumPy", "Pytesseract", "Colab", "Jupyter-Notebook"],
-    title: "Automatic License Plate Detection and Validation System",
-    description: "Automatic License Plate Detection and Verification (ALPDV) using YOLOv5 for object detection and Tesseract OCR for text recognition.",
-    githubUrl: "https://github.com/nitinkoberoii/Automatic-License-Plate-Detection-and-Validation"
-  },
-  {
-    category: "AI/ML",
-    image: "/projects/chest.png",
-    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Jupyter-Notebook"],
-    title: "Chest X-Ray Disease Detection",
-    description: "Detection of diseases using predictive models.",
-    githubUrl: "https://github.com/nitinkoberoii/Disease_detection"
-  },
-  {
-    category: "AI/ML",
-    techStack: ["Python", "Pandas", "NumPy", "Scikit-learn", "Flask", "Support-Vector-Machine(SVC)", "Random-Forest-Classifier"],
-    title: "AI for Personalized Medicine",
-    description: "AI for personalized disease prediction and treatment recommendations.",
-    githubUrl: "https://github.com/nitinkoberoii/AI-based-disease-prediction"
   },
 ]; 
