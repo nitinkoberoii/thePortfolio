@@ -112,146 +112,141 @@ const HomeScreen: React.FC = () => {
       {/* Space below experience */}
       <div className="h-[60px] md:h-[40px]"></div>
 
-      {/* Projects Section Title */}
-      <section id="projects" className="w-full flex flex-col md:flex-row items-start md:items-center justify-between px-8 md:px-[10vw] mb-8 gap-4 md:gap-0">
-        {/* Left: #projects and line */}
-        <div className="flex items-center">
-          <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
-            <span className="text-primary">#</span><span className="text-white">projects</span>
-          </span>
-          <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[540px]"></div>
+      {/* Projects Section */}
+      <section id="projects" className="w-full">
+        {/* Projects Section Title */}
+        <div className="w-full flex flex-col md:flex-row items-start md:items-center justify-between px-8 md:px-[10vw] mb-8 gap-4 md:gap-0">
+          <div className="flex items-center">
+            <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
+              <span className="text-primary">#</span><span className="text-white">projects</span>
+            </span>
+            <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[540px]"></div>
+          </div>
+          <Link
+            to="/projects"
+            className="flex items-center gap-2 text-white font-mono text-base md:text-lg hover:text-primary transition-colors cursor-pointer select-none"
+          >
+            View all
+            <svg width="36" height="16" viewBox="0 0 36 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 8H34" stroke="currentColor" strokeWidth="2"/>
+              <path d="M28 2L34 8L28 14" stroke="currentColor" strokeWidth="2"/>
+            </svg>
+          </Link>
         </div>
-        {/* Right: View all with arrow */}
-        <Link
-          to="/projects"
-          className="flex items-center gap-2 text-white font-mono text-base md:text-lg hover:text-primary transition-colors cursor-pointer select-none"
-        >
-          View all
-          <svg width="36" height="16" viewBox="0 0 36 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 8H34" stroke="currentColor" strokeWidth="2"/>
-            <path d="M28 2L34 8L28 14" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        </Link>
-      </section>
 
-      <div className="h-[80px] md:h-[40px]"></div>
+        <div className="h-[40px]"></div>
 
-      {/* Projects Grid */}
-      <section className="relative w-full px-8 md:px-[10vw] pb-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {PROJECTS.slice(0, 3).map((project: Project) => (
-            <div key={project.title} className="border border-gray bg-background/80 rounded-none flex flex-col h-full min-h-[380px] shadow-md transition-transform hover:-translate-y-2 group">
-              {/* Project Image */}
-              <div className="w-full h-[180px] bg-black flex items-center justify-center border-b border-gray overflow-hidden">
-                <img src={project.image} alt={project.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 text-xs font-mono text-gray border-b border-gray px-4 py-2">
-                {project.techStack.map((tech: string) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
-              {/* Title & Description */}
-              <div className="flex-1 px-4 py-4 flex flex-col">
-                <span className="font-mono text-2xl font-bold mb-2 text-white">{project.title}</span>
-                <span className="font-mono text-gray text-base mb-4">{project.description}</span>
-                <div className="mt-auto flex gap-4">
-                  {project.liveUrl && (
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="border border-primary text-primary font-mono px-4 py-2 text-base hover:bg-primary hover:text-background transition-colors">
-                      Live <span className="inline-block ml-1">⇔</span>
+        {/* Projects Grid */}
+        <div className="relative w-full px-8 md:px-[10vw] pb-24">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PROJECTS.slice(0, 3).map((project: Project) => (
+              <div key={project.title} className="border border-gray bg-background/80 rounded-none flex flex-col h-full min-h-[380px] shadow-md transition-transform hover:-translate-y-2 group">
+                <div className="w-full h-[180px] bg-black flex items-center justify-center border-b border-gray overflow-hidden">
+                  <img src={project.image} alt={project.title} className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300" />
+                </div>
+                <div className="flex flex-wrap gap-2 text-xs font-mono text-gray border-b border-gray px-4 py-2">
+                  {project.techStack.map((tech: string) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+                <div className="flex-1 px-4 py-4 flex flex-col">
+                  <span className="font-mono text-2xl font-bold mb-2 text-white">{project.title}</span>
+                  <span className="font-mono text-gray text-base mb-4">{project.description}</span>
+                  <div className="mt-auto flex gap-4">
+                    {project.liveUrl && (
+                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="border border-primary text-primary font-mono px-4 py-2 text-base hover:bg-primary hover:text-background transition-colors">
+                        Live <span className="inline-block ml-1">⇔</span>
+                      </a>
+                    )}
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="border border-gray text-gray font-mono px-4 py-2 text-base hover:bg-gray hover:text-background transition-colors">
+                      Github <span className="inline-block ml-1">&gt;</span>
                     </a>
-                  )}
-                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="border border-gray text-gray font-mono px-4 py-2 text-base hover:bg-gray hover:text-background transition-colors">
-                    Github <span className="inline-block ml-1">&gt;</span>
-                  </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <img
+            src={rect2}
+            alt="Rectangle Design 2"
+            className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[50px] z-30"
+          />
+          <img
+            src={dots}
+            alt="Rectangle Design 2"
+            className="hidden md:block absolute left-[-90px] top-[20%] -translate-y-1/2 w-[80px] z-30"
+          />
         </div>
-        {/* Rectangle on the complete right (rect2) */}
-        <img
-          src={rect2}
-          alt="Rectangle Design 2"
-          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[50px] z-30"
-        />
-        {/* Dots on the left (user added) */}
-        <img
-          src={dots}
-          alt="Rectangle Design 2"
-          className="hidden md:block absolute left-[-90px] top-[20%] -translate-y-1/2 w-[80px] z-30"
-        />
       </section>
 
       {/* Space below projects */}
       <div className="h-[80px] md:h-[40px]"></div>
 
-      {/* Skills Section Title */}
-      <section id="skills" className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
-        <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
-          <span className="text-primary">#</span><span className="text-white">skills</span>
-        </span>
-        <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
-      </section>
-
       {/* Skills Section */}
-      <section className="relative w-full px-8 md:px-[10vw] min-h-[400px] flex items-start">
-        {/* Left-side designs (absolute, pixel-based) */}
-        <img
-          src={dots}
-          alt="dots"
-          className="hidden md:block absolute left-[185px] top-[30px] w-[80px] z-10"
-        />
-        <img
-          src={rect3}
-          alt="rect3"
-          className="hidden md:block absolute left-[480px] top-[0px] w-[80px] z-10"
-        />
-        <img
-          src={dots}
-          alt="dots"
-          className="hidden md:block absolute left-[420px] top-[140px] w-[80px] z-10"
-        />
-        <img
-          src={unionOutlined}
-          alt="Union Outlined"
-          className="hidden md:block absolute left-[230px] top-[200px] w-[130px] z-10"
-        />
-        <img
-          src={rect3}
-          alt="rect3"
-          className="hidden md:block absolute left-[550px] top-[180px] w-[50px] z-10"
-        />
-        {/* Skills grid - Mobile: single column, Desktop: 3x2 grid */}
-        <div className="w-full md:ml-[500px] z-20">
-          {/* Mobile Layout: Single column */}
-          <div className="md:hidden grid grid-cols-1 gap-4">
-            {SKILLS.map((skill) => (
-              <div key={skill.category} className="border border-gray px-6 py-4">
-                <span className="font-mono font-bold text-lg text-white mb-2 block">{skill.category}</span>
-                <div className="border-t border-gray my-2 -mx-6"></div>
-                <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                  {skill.items.map((item: string) => (
-                    <span key={item}>{item}</span>
-                  ))}
+      <section id="skills" className="relative w-full">
+        {/* Skills Section Title */}
+        <div className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
+          <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
+            <span className="text-primary">#</span><span className="text-white">skills</span>
+          </span>
+          <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
+        </div>
+
+        {/* Skills Content */}
+        <div className="relative w-full px-8 md:px-[10vw] min-h-[400px] flex items-start">
+          <img
+            src={dots}
+            alt="dots"
+            className="hidden md:block absolute left-[185px] top-[30px] w-[80px] z-10"
+          />
+          <img
+            src={rect3}
+            alt="rect3"
+            className="hidden md:block absolute left-[480px] top-[0px] w-[80px] z-10"
+          />
+          <img
+            src={dots}
+            alt="dots"
+            className="hidden md:block absolute left-[420px] top-[140px] w-[80px] z-10"
+          />
+          <img
+            src={unionOutlined}
+            alt="Union Outlined"
+            className="hidden md:block absolute left-[230px] top-[200px] w-[130px] z-10"
+          />
+          <img
+            src={rect3}
+            alt="rect3"
+            className="hidden md:block absolute left-[550px] top-[180px] w-[50px] z-10"
+          />
+          <div className="w-full md:ml-[500px] z-20">
+            <div className="md:hidden grid grid-cols-1 gap-4">
+              {SKILLS.map((skill) => (
+                <div key={skill.category} className="border border-gray px-6 py-4">
+                  <span className="font-mono font-bold text-lg text-white mb-2 block">{skill.category}</span>
+                  <div className="border-t border-gray my-2 -mx-6"></div>
+                  <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
+                    {skill.items.map((item: string) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Desktop Layout: Dynamic flexible layout */}
-          <div className="hidden md:flex flex-wrap gap-5 max-w-[720px]">
-            {SKILLS.map((skill) => (
-              <div key={skill.category} className="border border-gray px-6 py-4 flex-1 min-w-[200px] max-w-[220px]">
-                <span className="font-mono font-bold text-lg text-white mb-2 block">{skill.category}</span>
-                <div className="border-t border-gray my-2 -mx-6"></div>
-                <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
-                  {skill.items.map((item: string) => (
-                    <span key={item}>{item}</span>
-                  ))}
+              ))}
+            </div>
+            
+            <div className="hidden md:flex flex-wrap gap-5 max-w-[720px]">
+              {SKILLS.map((skill) => (
+                <div key={skill.category} className="border border-gray px-6 py-4 flex-1 min-w-[200px] max-w-[220px]">
+                  <span className="font-mono font-bold text-lg text-white mb-2 block">{skill.category}</span>
+                  <div className="border-t border-gray my-2 -mx-6"></div>
+                  <div className="font-mono text-gray text-base flex flex-wrap gap-x-3 gap-y-1">
+                    {skill.items.map((item: string) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -259,104 +254,99 @@ const HomeScreen: React.FC = () => {
       {/* Space below skills */}
       <div className="h-[80px] md:h-[40px]"></div>
 
-      {/* About Me Section Title */}
-      <section id="about-me" className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
-        <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
-          <span className="text-primary">#</span><span className="text-white">about-me</span>
-        </span>
-        <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
-      </section>
-
       {/* About Me Section */}
-      <section className="relative w-full px-8 md:px-[10vw] min-h-[200px] flex flex-col md:flex-row items-center gap-8">
-        {/* rect4 on far left */}
-        <img
-          src={rect4}
-          alt="rect4"
-          className="hidden md:block absolute left-[-60px] top-[60px] w-[60px] z-10"
-        />
-        {/* Dots on far right */}
-        <img
-          src={dots}
-          alt="dots-right"
-          className="hidden md:block absolute right-0 bottom-[40px] w-[100px] z-10"
-        />
-        {/* Left: About text */}
-        <div className="flex-1 max-w-xl z-20 order-2 md:order-1">
-          <div className="text-gray font-mono text-lg mb-6">{ABOUT_SECTION.greeting}</div>
-          <div className="text-gray font-mono text-base mb-6" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.intro}</div>
-          {ABOUT_SECTION.education && (
-            <div className="text-gray font-mono text-base mb-8" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.education}</div>
-          )}
-          <div className="text-gray font-mono text-base mb-6" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.description}</div>
+      <section id="about-me" className="relative w-full">
+        {/* About Me Section Title */}
+        <div className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
+          <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
+            <span className="text-primary">#</span><span className="text-white">about-me</span>
+          </span>
+          <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
         </div>
-        {/* Right: Profile image with dots overlays */}
-        <div className="flex-1 flex items-center justify-center relative min-w-[280px] md:min-w-[320px] min-h-[350px] md:min-h-[400px] order-1 md:order-2">
-          {/* Dots overlay 1 */}
+
+        {/* About Me Content */}
+        <div className="relative w-full px-8 md:px-[10vw] min-h-[200px] flex flex-col md:flex-row items-center gap-8">
+          <img
+            src={rect4}
+            alt="rect4"
+            className="hidden md:block absolute left-[-60px] top-[60px] w-[60px] z-10"
+          />
           <img
             src={dots}
-            alt="dots-overlay-1"
-            className="absolute left-[140px] top-[40px] w-[80px] z-10"
+            alt="dots-right"
+            className="hidden md:block absolute right-0 bottom-[40px] w-[100px] z-10"
           />
-          {/* Dots overlay 2 */}
-          <img
-            src={dots}
-            alt="dots-overlay-2"
-            className="absolute right-[100px] bottom-[150px] w-[80px] z-20"
-          />
-          {/* Profile image */}
-          <img
-            src={profileAbout}
-            alt="Profile About"
-            className="relative z-10 w-[280px] md:w-[350px] h-[400px] md:h-[500px] object-cover object-top rounded-b-xl shadow-lg"
-            style={{ clipPath: 'inset(0 0 0 0 round 0 0 32px 32px)' }}
-          />
-          {/* Line below profile image */}
-          <div
-            className="absolute left-1/2 -translate-x-1/2 bottom-[0px] w-[280px] md:w-[350px] border-t-2 border-primary"
-            style={{ zIndex: 15 }}
-          ></div>
+          <div className="flex-1 max-w-xl z-20 order-2 md:order-1">
+            <div className="text-gray font-mono text-lg mb-6">{ABOUT_SECTION.greeting}</div>
+            <div className="text-gray font-mono text-base mb-6" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.intro}</div>
+            {ABOUT_SECTION.education && (
+              <div className="text-gray font-mono text-base mb-8" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.education}</div>
+            )}
+            <div className="text-gray font-mono text-base mb-6" style={{ whiteSpace: 'pre-line' }}>{ABOUT_SECTION.description}</div>
+          </div>
+          <div className="flex-1 flex items-center justify-center relative min-w-[280px] md:min-w-[320px] min-h-[350px] md:min-h-[400px] order-1 md:order-2">
+            <img
+              src={dots}
+              alt="dots-overlay-1"
+              className="absolute left-[140px] top-[40px] w-[80px] z-10"
+            />
+            <img
+              src={dots}
+              alt="dots-overlay-2"
+              className="absolute right-[100px] bottom-[150px] w-[80px] z-20"
+            />
+            <img
+              src={profileAbout}
+              alt="Profile About"
+              className="relative z-10 w-[280px] md:w-[350px] h-[400px] md:h-[500px] object-cover object-top rounded-b-xl shadow-lg"
+              style={{ clipPath: 'inset(0 0 0 0 round 0 0 32px 32px)' }}
+            />
+            <div
+              className="absolute left-1/2 -translate-x-1/2 bottom-[0px] w-[280px] md:w-[350px] border-t-2 border-primary"
+              style={{ zIndex: 15 }}
+            ></div>
+          </div>
         </div>
       </section>
 
       {/* Space below about-me */}
       <div className="h-[80px] md:h-[80px]"></div>
 
-      {/* Contacts Section Title */}
-      <section id="contacts" className="relative w-full px-8 md:px-[10vw] flex items-center">
-        <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
-          <span className="text-primary">#</span><span className="text-white">contacts</span>
-        </span>
-        <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
-      </section>
-
       {/* Contacts Section */}
-      <section className="relative w-full px-8 md:px-[10vw] min-h-[300px] flex flex-col md:flex-row items-center gap-8">
-        {/* Dots on far far left */}
-        <img
-          src={dots}
-          alt="dots-far-left"
-          className="hidden md:block absolute left-[-90px] top-[40px] w-[80px] z-10"
-        />
-        {/* Left: Description */}
-        <div className="flex-1 max-w-xl z-20 order-2 md:order-1">
-          <div className="text-gray font-mono text-base mb-8" style={{ whiteSpace: 'pre-line' }}>{CONTACTS_SECTION.description}</div>
+      <section id="contacts" className="relative w-full pb-16">
+        {/* Contacts Section Title */}
+        <div className="relative w-full px-8 md:px-[10vw] mb-8 flex items-center">
+          <span className="font-mono font-bold text-3xl md:text-4xl mr-6 whitespace-nowrap">
+            <span className="text-primary">#</span><span className="text-white">contacts</span>
+          </span>
+          <div className="border-t-2 border-primary opacity-40 w-[200px] md:w-[320px] ml-4"></div>
         </div>
-        {/* Right: Contact Box */}
-        <div className="flex-1 flex justify-center md:justify-end z-20 order-1 md:order-2">
-          <div className="border border-gray px-6 md:px-8 py-6 w-full max-w-[340px] bg-background/80">
-            <div className="font-mono text-white text-xl font-bold mb-4">{CONTACTS_SECTION.messageLabel}</div>
-            <div className="flex items-center gap-3 text-gray font-mono text-lg mb-3 hover:text-white transition-colors group">
-              <img src={phone} alt="Phone" className="w-7 h-7 group-hover:brightness-0 group-hover:invert transition-all" />
-              {CONTACTS_SECTION.phone}
-            </div>
-            <div className="flex items-center gap-3 text-gray font-mono text-lg hover:text-white transition-colors group">
-              <img src={email} alt="Email" className="w-7 h-7 group-hover:brightness-0 group-hover:invert transition-all" />
-              {CONTACTS_SECTION.email}
+
+        {/* Contacts Content */}
+        <div className="relative w-full px-8 md:px-[10vw] min-h-[300px] flex flex-col md:flex-row items-center gap-8">
+          <img
+            src={dots}
+            alt="dots-far-left"
+            className="hidden md:block absolute left-[-90px] top-[40px] w-[80px] z-10"
+          />
+          <div className="flex-1 max-w-xl z-20 order-2 md:order-1">
+            <div className="text-gray font-mono text-base mb-8" style={{ whiteSpace: 'pre-line' }}>{CONTACTS_SECTION.description}</div>
+          </div>
+          <div className="flex-1 flex justify-center md:justify-end z-20 order-1 md:order-2">
+            <div className="border border-gray px-6 md:px-8 py-6 w-full max-w-[340px] bg-background/80">
+              <div className="font-mono text-white text-xl font-bold mb-4">{CONTACTS_SECTION.messageLabel}</div>
+              <div className="flex items-center gap-3 text-gray font-mono text-lg mb-3 hover:text-white transition-colors group">
+                <img src={phone} alt="Phone" className="w-7 h-7 group-hover:brightness-0 group-hover:invert transition-all" />
+                {CONTACTS_SECTION.phone}
+              </div>
+              <div className="flex items-center gap-3 text-gray font-mono text-lg hover:text-white transition-colors group">
+                <img src={email} alt="Email" className="w-7 h-7 group-hover:brightness-0 group-hover:invert transition-all" />
+                {CONTACTS_SECTION.email}
+              </div>
             </div>
           </div>
         </div>
-    </section>
+      </section>
     </div>
   );
 };

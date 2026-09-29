@@ -24,23 +24,42 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Scrollspy effect for home screen
+  // Scrollspy effect for home screen using Viewport BoundingRect
   useEffect(() => {
     if (location.pathname !== "/") {
       setActiveSection(location.pathname === "/projects" ? "projects" : "home");
       return;
     }
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 120; // Offset for header
-      let currentSection = sectionIds[0];
+      // Top of page
+      if (window.scrollY < 100) {
+        setActiveSection("home");
+        return;
+      }
+
+      // Bottom of page
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        setActiveSection("contacts");
+        return;
+      }
+
+      // Check section in viewport
+      const scrollCheckPoint = 180; // 180px from top of viewport
+      let currentSection = "home";
+
       for (const id of sectionIds) {
         const section = document.getElementById(id);
-        if (section && section.offsetTop <= scrollPosition) {
-          currentSection = id;
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= scrollCheckPoint && rect.bottom >= scrollCheckPoint) {
+            currentSection = id;
+            break;
+          }
         }
       }
       setActiveSection(currentSection);
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Set on mount
     return () => window.removeEventListener("scroll", handleScroll);
