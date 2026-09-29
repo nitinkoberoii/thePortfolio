@@ -104,7 +104,13 @@ const HomeScreen: React.FC = () => {
       </section>
 
       {/* Space below quote, matching space above */}
-      <div className="h-[80px] md:h-[40px]"></div>
+      <div className="h-[40px] md:h-[20px]"></div>
+
+      {/* Experience Section */}
+      <ExperienceScreen />
+
+      {/* Space below experience */}
+      <div className="h-[60px] md:h-[40px]"></div>
 
       {/* Projects Section Title */}
       <section id="projects" className="w-full flex flex-col md:flex-row items-start md:items-center justify-between px-8 md:px-[10vw] mb-8 gap-4 md:gap-0">
@@ -178,12 +184,6 @@ const HomeScreen: React.FC = () => {
       </section>
 
       {/* Space below projects */}
-      <div className="h-[80px] md:h-[20px]"></div>
-
-      {/* Experience Section */}
-      <ExperienceScreen />
-
-      {/* Space below experience */}
       <div className="h-[80px] md:h-[40px]"></div>
 
       {/* Skills Section Title */}

@@ -5,14 +5,14 @@ import unionLogo from "../assets/images/union.png";
 
 const navLinks = [
   { label: "#home" },
-  { label: "#projects" },
   { label: "#experience" },
+  { label: "#projects" },
   { label: "#skills" },
   { label: "#about-me" },
   { label: "#contacts" },
 ];
 
-const sectionIds = ["home", "projects", "skills", "about-me", "contacts"];
+const sectionIds = ["home", "experience", "projects", "skills", "about-me", "contacts"];
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
